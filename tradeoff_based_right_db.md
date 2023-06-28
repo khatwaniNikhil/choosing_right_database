@@ -41,11 +41,9 @@
 1. recommended for **catalogs | user profiles | and content management systems**
 2. supports JSON-like documents - flexible, semistructured, and hierarchical nature
 3. Documents map to objects in application layer 
-4. can be adhoc field queried, flexible indexin
-extends the key value model and values are structured format(called as document- JSON, BSON, or XML)
-db does indexing of fields of the document/secondary indexes
-joins are supported(different from rdbms joins)
-
+4. can be adhoc field queried, flexible indexing - db does indexing of fields of the document/secondary indexes
+5. extends the key value model and values are structured format(called as document- JSON, BSON, or XML)
+6. joins are supported(different from rdbms joins)
 
 ## Column oriented DB(Cassandra, HBase)
 1. Data Warehousing |  analytical applications

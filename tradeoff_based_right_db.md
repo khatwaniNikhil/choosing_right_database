@@ -2,6 +2,7 @@
 1. https://pub.towardsai.net/exploring-the-nosql-family-49e9f23313ad
 2. https://aws.amazon.com/nosql/key-value/
 3. https://medium.com/helpdotcom/techtalk-tackling-flexible-schema-in-relational-databases-ddcf0c095615
+4. https://inviqa.com/blog/understanding-eav-data-model-and-when-use-it
 
 # CAP Theorem
 1. impossible for a distributed data store to simultaneously provide more than two of the three guarantees.

@@ -6,20 +6,24 @@
 1. impossible for a distributed data store to simultaneously provide more than two of the three guarantees.
 ![](https://github.com/khatwaniNikhil/choosing_right_database/blob/main/CAP_theorem.png)
 
-# SQL or NOSQL
+# SQL or NOSQL or New SQL
 1. RDBMS
    1. focus on CA(Consistency and Availability)
-   2. ACID support
-   3. Some SQL databases are able to combine horizontal sharding/scaling and distributed queries
-      1. Citus extension for PostgresSQL
-      2. YugabyteDB
-      3. Vitess
+   2. ACID support | OLTP workloads
    
-3. NOSQL
+2. NOSQL
    1. fast and cheap scalability is mandatory | Big Data category
    2. sacrificing Consistency in favor of Availability and Partition Tolerance (AP) for horizontal partitioning and speed
       1. Eventual Consistency - eventually, all the nodes within the cluster will contain the same data version.
    3. Some Document-Value NoSQL databases(Azure Table Storage, MongoDB) allow for ACID-like transactions as long as performed within the same collection
+
+3. New SQL
+    1. ACID | OLTP workloads + horizontal Scalability
+    2. Examples:
+       1. Citus extension for PostgresSQL
+       2. YugabyteDB
+       3. Vitess
+
 
 # NOSQL
 ## KEY VALUE STORES (Redis, Riak, Memcache, Amazon Dynamodb(supports json based document store data model)

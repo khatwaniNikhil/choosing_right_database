@@ -48,3 +48,4 @@
 2. Column-oriented storage improves analytic query performance because it drastically reduces the overall disk I/O requirements
 3. compression scheme selected specifically for the column data type can make storage more optimised
 
+## Graph Databases

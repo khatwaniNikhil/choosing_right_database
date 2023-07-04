@@ -32,8 +32,7 @@
 6. visualise data
    1. spread across partitions(with a partition key based lookup) — Partition(UserID)
    2. within each partition, each record has record key/id and value(json —text, media etc.) —— UserID.Name, UserID.Location, UserID.Height
-   3. If a physical partition contains several hot logical partitions (e.g. a set of users that request data frequently)
-   4. engine is able to distribute the logical partitions spreading the workload across different clusters. 
+   3. If a physical partition contains several hot logical partitions (e.g. a set of users that request data frequently), engine is able to distribute the logical partitions spreading the workload across different clusters. 
 
 ## Document oriented database(MongoDB, Amazon DocumentDB)
 1. recommended for **catalogs | user profiles | and content management systems**

@@ -9,21 +9,20 @@
 ![](https://github.com/khatwaniNikhil/choosing_right_database/blob/main/CAP_theorem.png)
 
 # Tradeoffs based decision
-1. Focus on CA(Consistency and Availability) | ACID support | OLTP workloads - **RDBMS**
-2. Focus on Availability and Partition Tolerance (AP) | fast and cheap scalability is mandatory | Big Data category | Eventual Consistency is tolerable - **NoSQL**
-3. ACID | OLTP workloads | horizontal Scalability - **New SQL**
+1. ACID support | OLTP workloads | tunable for CA,CP,AP based on needs(https://stackoverflow.com/questions/29663645/why-are-rdbms-considered-available-ca-for-cap-theorem) - **RDBMS**    
+3. Focus on Availability and Partition Tolerance (AP) | fast and cheap scalability is mandatory | Big Data category | Eventual Consistency is tolerable - **NoSQL**
+4. ACID | OLTP workloads | horizontal Scalability - **New SQL**
    1. Examples:
        1. Citus extension for PostgresSQL
        2. YugabyteDB
        3. Vitess
-4. ACID | JOINS | Flexible schema | Complex query patterns - PostgreSQL(leverage table inheritance) + ZomboDB plugin based Elasticsearch index
+5. ACID | JOINS | Flexible schema | Complex query patterns - PostgreSQL(leverage table inheritance) + ZomboDB plugin based Elasticsearch index
 
 
 # NOSQL
 ## KEY VALUE STORES (Redis, Riak, Memcache, Amazon Dynamodb(supports json based document store data model)
 1. not designed to be **field-queried**:
-   1. value part is opaque to client/consumer of data
-   2. query by any field within value/json will lead to full scan across all partitons
+   1. value part is opaque to client/consumer of data - query by any field within value/json will lead to full scan across all partitons
 2. recommended for **Session storage | Store user preferences |  Shopping cart**
    1. supporting  TTL for records
 3. with right partition and record key, crud is blazing fast

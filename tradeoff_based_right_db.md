@@ -3,10 +3,39 @@
 2. https://aws.amazon.com/nosql/key-value/
 3. https://medium.com/helpdotcom/techtalk-tackling-flexible-schema-in-relational-databases-ddcf0c095615
 4. https://inviqa.com/blog/understanding-eav-data-model-and-when-use-it
+5. https://www.mongodb.com/compare/cassandra-vs-mongodb
+6. http://dbmsmusings.blogspot.com/2010/03/distinguishing-two-major-types-of_29.html
+
+<br />
+
+# MongoDB versus Cassandra
+
+| Dimensions | MongoDB | Cassandra |
+| --- | --- | --- |
+| Data Modelling | general purpose document store | partitioned row store<br>(hey store a column family in a row-by-row fashion)<br>(columns are part of the data and not part of the schema |
+|  | BSON | Log-structured merge trees(LSM) |
+|  | <br>databases -> collections -> documents -> columns -> values | Keyspace -> column families  -> rows -> ordered columns -> (column name + column value + timestamp) |
+|  | flexibility around no of columns in any document | flexibility around no of columns in any document |
+|  | Each collection visualised as List<JSON> | each column family represented as nested sorted map<br>Map<RowKey, SortedMap<ColumnKey, ColumnValue>> |
+|  |  |  |
+| IO Operation | complete document gets picked | group of columns in a column family gets picked |
+|  |  |  |
+| Query patterns | query patterns can evolve as indexes can be added later for different columns | need upfront clarity around columns to be access together and data modelling should be done accordingly |
+|  | write flow<br>read from disk -> modify->update to disk | write flow - suitable for write heavy workloads<br>write in memtable -> flush at regular interval to SSTable/disk(seq IO - append mode) |
+|  |  |  |
+| Choose criteria | data is more dynamic, <br>query patterns can evolve<br>CP(write flow availability sacrificed when leader is down or disconcected due to n/w partition) | static schema<br>well defined query patterns<br>AP(while data replication takes time, stale data can be returned by lagging follower) |
+|  |  |  |
+| example - use cases | blogging website | sensors immutable set of events |\
+
+<br />
+<br />
 
 # CAP Theorem
 1. impossible for a distributed data store to simultaneously provide more than two of the three guarantees.
 ![](https://github.com/khatwaniNikhil/choosing_right_database/blob/main/CAP_theorem.png)
+
+<br />
+<br />
 
 # Tradeoffs based decision
 1. ACID support | OLTP workloads | tunable for CA,CP,AP based on needs(https://stackoverflow.com/questions/29663645/why-are-rdbms-considered-available-ca-for-cap-theorem) - **RDBMS**    
@@ -18,6 +47,8 @@
        3. Vitess
 5. ACID | JOINS | Flexible schema | Complex query patterns - PostgreSQL(leverage table inheritance) + ZomboDB plugin based Elasticsearch index
 
+<br />
+<br />
 
 # NOSQL
 ## KEY VALUE STORES (Redis, Riak, Memcache, Amazon Dynamodb(supports json based document store data model)

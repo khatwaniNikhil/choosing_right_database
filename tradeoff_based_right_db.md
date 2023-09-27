@@ -5,14 +5,14 @@
 4. https://inviqa.com/blog/understanding-eav-data-model-and-when-use-it
 5. https://www.mongodb.com/compare/cassandra-vs-mongodb
 6. http://dbmsmusings.blogspot.com/2010/03/distinguishing-two-major-types-of_29.html
+7. https://www.pythian.com/blog/cassandra-use-cases
 
 <br />
 
 # MongoDB versus Cassandra
 
-| Dimensions | MongoDB | Cassandra |
+| Data Modelling | general purpose document store | partitioned row store<br>(store a column family in a row-by-row fashion)<br>(columns are part of the data and not part of the schema |
 | --- | --- | --- |
-| Data Modelling | general purpose document store | partitioned row store<br>(stores column family in a row-by-row fashion)<br>(columns are part of the data and not part of the schema |
 |  | BSON | Log-structured merge trees(LSM) |
 |  | <br>databases -> collections -> documents -> columns -> values | Keyspace -> column families  -> rows -> ordered columns -> (column name + column value + timestamp) |
 |  | flexibility around no of columns in any document | flexibility around no of columns in any document |
@@ -23,9 +23,9 @@
 | Query patterns | query patterns can evolve as indexes can be added later for different columns | need upfront clarity around columns to be access together and data modelling should be done accordingly |
 |  | write flow<br>read from disk -> modify->update to disk | write flow - suitable for write heavy workloads<br>write in memtable -> flush at regular interval to SSTable/disk(seq IO - append mode) |
 |  |  |  |
-| Choose criteria | data is more dynamic, <br>query patterns can evolve<br>CP(write flow availability sacrificed when leader is down or disconcected due to n/w partition) | static schema<br>well defined query patterns<br>AP(while data replication takes time, stale data can be returned by lagging follower) |
+| Choose criteria | data is more dynamic, <br>query patterns can evolve<br>CP(write flow availability sacrificed when leader is down or disconcected due to n/w partition) | 1. Writes exceed reads by a large margin. <br>2. Immutable append only data with almost no updates/deletes.<br>3. reads are very targeted(by primary key)<br>4. Data is rarely updated and when updates are made they are idempotent.<br>5. Data can be partitioned for linear scaling.<br>6. There is no need for joins or aggregates.<br>7. No ACID or locks use cases<br><br>Realworld use cases<br>1. tracking: sensors data, health tracker, weather, iot of cars trucks, ecommerce order/shipment status changes. |
 |  |  |  |
-| example - use cases | blogging website | sensors immutable set of events |\
+| example - use cases | blogging website | sensors data, health tracker, weather, iot of cars trucks, ecommerce order/shipment status changes. |
 
 <br />
 <br />

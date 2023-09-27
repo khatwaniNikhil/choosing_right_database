@@ -12,7 +12,7 @@
 
 | Dimensions | MongoDB | Cassandra |
 | --- | --- | --- |
-| Data Modelling | general purpose document store | partitioned row store<br>(hey store a column family in a row-by-row fashion)<br>(columns are part of the data and not part of the schema |
+| Data Modelling | general purpose document store | partitioned row store<br>(stores column family in a row-by-row fashion)<br>(columns are part of the data and not part of the schema |
 |  | BSON | Log-structured merge trees(LSM) |
 |  | <br>databases -> collections -> documents -> columns -> values | Keyspace -> column families  -> rows -> ordered columns -> (column name + column value + timestamp) |
 |  | flexibility around no of columns in any document | flexibility around no of columns in any document |

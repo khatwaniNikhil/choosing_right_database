@@ -1,12 +1,14 @@
 # References
-1. https://www.pythian.com/blog/why-column-stores
-2. https://pub.towardsai.net/exploring-the-nosql-family-49e9f23313ad
-3. https://aws.amazon.com/nosql/key-value/
-4. https://medium.com/helpdotcom/techtalk-tackling-flexible-schema-in-relational-databases-ddcf0c095615
-5. https://inviqa.com/blog/understanding-eav-data-model-and-when-use-it
-6. https://www.mongodb.com/compare/cassandra-vs-mongodb
-7. http://dbmsmusings.blogspot.com/2010/03/distinguishing-two-major-types-of_29.html
-8. https://www.pythian.com/blog/cassandra-use-cases
+1. https://www.saigeetha.in/post/making-the-right-database-choice
+2. https://www.pythian.com/blog/why-column-stores
+3. https://pub.towardsai.net/exploring-the-nosql-family-49e9f23313ad
+4. https://aws.amazon.com/nosql/key-value/
+5. https://medium.com/helpdotcom/techtalk-tackling-flexible-schema-in-relational-databases-ddcf0c095615
+6. https://inviqa.com/blog/understanding-eav-data-model-and-when-use-it
+7. https://www.mongodb.com/compare/cassandra-vs-mongodb
+8. http://dbmsmusings.blogspot.com/2010/03/distinguishing-two-major-types-of_29.html
+9. https://www.pythian.com/blog/cassandra-use-cases
+10. https://www.pythian.com/blog/cassandra-use-cases
 
 
 # MongoDB versus sycalla db
